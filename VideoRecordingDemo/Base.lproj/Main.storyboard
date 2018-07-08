@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--DemoVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DemoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DemoVC" customModule="VideoRecordingDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +17,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KrU-Gx-F7t" customClass="PreviewView" customModule="VideoRecordingDemo" customModuleProvider="target">
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGA-MY-out" customClass="OverlayView" customModule="VideoRecordingDemo" customModuleProvider="target">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1kx-8O-O48">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="54" id="BcH-Dn-MiP"/>
+                                                    <constraint firstAttribute="height" constant="30" id="bvb-xU-LN4"/>
+                                                </constraints>
+                                                <state key="normal" title="Camera"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2W-e5-mSb">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="r3A-WY-o1m"/>
+                                                </constraints>
+                                                <state key="normal" title="Flash"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEB-cx-nhl">
+                                                <state key="normal" title="Start Recording"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLD-zh-yyU">
+                                                <state key="normal" title="Volume"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="dEB-cx-nhl" secondAttribute="bottom" constant="8" id="0eL-yS-VKl"/>
+                                            <constraint firstItem="aLD-zh-yyU" firstAttribute="top" secondItem="tGA-MY-out" secondAttribute="top" constant="25" id="1qP-0H-Qoa"/>
+                                            <constraint firstItem="1kx-8O-O48" firstAttribute="leading" secondItem="tGA-MY-out" secondAttribute="leading" constant="8" id="GGk-qz-5bG"/>
+                                            <constraint firstItem="dEB-cx-nhl" firstAttribute="centerX" secondItem="tGA-MY-out" secondAttribute="centerX" id="KHw-mA-FzH"/>
+                                            <constraint firstItem="1kx-8O-O48" firstAttribute="top" secondItem="tGA-MY-out" secondAttribute="top" constant="25" id="RLV-pV-nnW"/>
+                                            <constraint firstItem="Z2W-e5-mSb" firstAttribute="leading" secondItem="1kx-8O-O48" secondAttribute="trailing" constant="26" id="USh-Wv-9q2"/>
+                                            <constraint firstItem="aLD-zh-yyU" firstAttribute="leading" secondItem="Z2W-e5-mSb" secondAttribute="trailing" constant="28" id="ekL-fP-GVQ"/>
+                                            <constraint firstAttribute="height" constant="110" id="oQs-j6-mxV"/>
+                                            <constraint firstItem="Z2W-e5-mSb" firstAttribute="top" secondItem="tGA-MY-out" secondAttribute="top" constant="25" id="vdN-rU-AYL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tGA-MY-out" secondAttribute="trailing" id="Yxc-j1-Kdk"/>
+                                    <constraint firstAttribute="bottom" secondItem="tGA-MY-out" secondAttribute="bottom" id="eWw-2I-HfZ"/>
+                                    <constraint firstItem="tGA-MY-out" firstAttribute="leading" secondItem="KrU-Gx-F7t" secondAttribute="leading" id="kOO-sO-3ph"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-dl-b8W">
+                                <state key="normal" title="resumeButton"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KrU-Gx-F7t" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6ag-jo-CEo"/>
+                            <constraint firstItem="cuc-dl-b8W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OiI-Ip-baJ"/>
+                            <constraint firstItem="KrU-Gx-F7t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="R0h-LX-l8K"/>
+                            <constraint firstItem="KrU-Gx-F7t" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rqu-3D-vKF"/>
+                            <constraint firstAttribute="trailing" secondItem="KrU-Gx-F7t" secondAttribute="trailing" id="WVI-5V-ROK"/>
+                            <constraint firstAttribute="trailing" secondItem="KrU-Gx-F7t" secondAttribute="trailing" id="a4J-M1-eK4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KrU-Gx-F7t" secondAttribute="bottom" id="iYh-pf-n5e"/>
+                            <constraint firstItem="cuc-dl-b8W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="l9h-9h-jSo"/>
+                            <constraint firstItem="KrU-Gx-F7t" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s3V-Vt-z6g"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="KrU-Gx-F7t" secondAttribute="bottom" id="s9t-fl-PZV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="OverlayView" destination="tGA-MY-out" id="JSN-cj-1X5"/>
+                        <outlet property="PreviewView" destination="KrU-Gx-F7t" id="MIl-q3-qk0"/>
+                        <outlet property="btnCamera" destination="1kx-8O-O48" id="FA7-XB-EPU"/>
+                        <outlet property="btnFlash" destination="Z2W-e5-mSb" id="hWT-Ic-hJf"/>
+                        <outlet property="btnRecording" destination="dEB-cx-nhl" id="mPe-gW-AZn"/>
+                        <outlet property="btnVolume" destination="aLD-zh-yyU" id="1Pf-bE-i2z"/>
+                        <outlet property="resumeButton" destination="cuc-dl-b8W" id="Pbp-kH-qkB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="8.8000000000000007" y="151.57421289355324"/>
         </scene>
     </scenes>
 </document>
